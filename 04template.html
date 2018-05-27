@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>template 사용하기</title>
+</head>
+<body>
+    <h1>template 사용하기</h1>
+    <div id="container">
+        <div id="template"></div>
+    </div>
+</body>
+</html>
+<script>
+    "use strict"
+    //---------------------------------------
+    // template 사용하기 : ${variable}
+
+    // 사용자 정의 function
+    let makeUppercase = function(input) {
+        return input.toUpperCase();
+    };
+
+    let name = 'Benny';
+    let template = `
+    <h1>${makeUppercase('Hello')}, ${name}</h1>
+    <p>This is a simple template.</p>
+    `;
+    
+    document.getElementById('template').innerHTML = template;
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>set map 사용하기</title>
+</head>
+<body>
+    <h1>set map 사용하기</h1>
+</body>
+</html>
+<script>
+    "use strict"
+    //---------------------------------------
+    // 1. set 사용하기
+    let myArray = [11, 22, 34, 65, 34];
+    let mySet = new Set(myArray);
+
+    mySet.add('100');
+    console.log(mySet);
+    mySet.add({a: 1, b: 2});
+    console.log(mySet);
+    mySet.delete(22); // 요소 하나 지우기
+    console.log(mySet);
+    // mySet.clear(); // 모든 요소 지우기
+    //console.log(mySet);
+    mySet.add('100');
+    console.log(mySet);
+    console.log('mySet.size=', mySet.size);
+
+    mySet.forEach(function(item){
+        console.log('forEach() -> item=', item);
+    });
+
+    //-----------------------------------------
+    // 2. map 사용하기
+    let myMap = new Map([['a1', 'Hello'], ['b2', 'GoodBye']]);
+    myMap.set('c3', 'Foo');
+    myMap.delete('a1'); // 특정 key 삭제
+    console.log(myMap);
+    
+    //-----------------------------------------
+    // 3. WeakSet 사용하기
+    let carWeakSet = new WeakSet();
+
+    let car1 = {
+        make: 'Honda',
+        model: 'Civic'
+    };
+
+    carWeakSet.add(car1)
+    carWeakSet.add({
+        make: 'Toyota',
+        model: 'Camry'
+    });
+    console.log(carWeakSet);
+    carWeakSet.delete(car1);
+    console.log(carWeakSet);
+
+    //-----------------------------------------
+    // 4. WeakMap 사용하기
+    let carWeakMap = new WeakMap();
+
+    let Key1 = {
+        id: 1
+    };
+
+    let Car1 = {
+        make: 'Honda',
+        model: 'Civic'
+    };
+
+    let Key2 = {
+        id: 2
+    };
+
+    let Car2 = {
+        make: 'Toyota',
+        model: 'Camry'
+    };
+
+    carWeakMap.set(Key1, Car1);
+    carWeakMap.set(Key2, Car2);
+    console.log(carWeakMap);
+    carWeakMap.delete(Key1);
+    console.log(carWeakMap);
+
+</script>

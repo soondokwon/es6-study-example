@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>const 사용하기</title>
+</head>
+<body>
+    <h1>const 사용하기</h1>
+</body>
+</html>
+<script>
+    "use strict"
+    //---------------------------------------
+    // const 사용하기 : push로 초기화는 허용
+    const COLORS = [];
+    COLORS.push('red');
+    COLORS.push('blue');
+    console.log(COLORS);
+
+    COLORS.push('green');
+    console.log(COLORS);
+    try {
+        // const로 선언된 변수는 다시 대입 할수 없다.
+        COLORS = ['white', 'black'];
+    } catch (e) {
+        console.log('COLORS e=', e)
+    }
+
+    COLORS.forEach(function(item){
+        console.log( item );
+    });
+
+    const OAUTH = ['google', 'facebook', 'twitter'];
+    try {
+        OAUTH = ['apple', 'microsoft'];
+    } catch (e) {
+        console.log('OAUTH e=', e)
+    }
+
+    OAUTH.forEach(function(item){
+        console.log( item );
+    });
+
+</script>

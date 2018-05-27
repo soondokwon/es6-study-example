@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>default parameter 사용하기</title>
+</head>
+<body>
+    <h1>default parameter 사용하기</h1>
+</body>
+</html>
+<script>
+    "use strict"
+    //---------------------------------------
+    // default parameter 사용하기
+    let greet = function(name, msg = 'Hello World!!!') {
+        console.log(msg, name);
+    }
+
+    greet('john', '안녕하세요?');
+    greet('benny');
+
+</script>

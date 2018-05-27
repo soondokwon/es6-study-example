@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>arrow function 사용하기</title>
+</head>
+<body>
+    <h1>arrow function 사용하기</h1>
+</body>
+</html>
+<script>
+    "use strict"
+    //---------------------------------------
+    // 1. prototype에서 arrow function이 필요한 예제
+    function Prefixer(prefix) {
+        this.prefix = prefix;
+    }
+
+    /*
+    Prefixer.prototype.prefixArray = function(arr) {
+        let that = this;
+        return arr.map(function(item){
+            console.log(that.prefix + item);
+        });
+    }
+    */
+    Prefixer.prototype.prefixArray = function(arr) {
+        return arr.map((item) => {
+            console.log(this.prefix + item);
+        });
+    }   
+
+    let pre = new Prefixer('Hello, ');
+    pre.prefixArray(['Benny', 'Tommy', 'John']);
+
+    //------------------------------------------
+    // 2. 기본 함수를 arrow 함수로 교체 하기
+    let add = function(a, b) {
+        let sum = a + b;
+        console.log('add() -> sum=', sum);
+        
+        return sum;
+    }
+
+    let addArrow = (a, b) => {
+        let sum = a + b;
+        console.log('addArrow() -> sum=', sum);
+        
+        return sum;        
+    }
+
+    add(10, 20);
+    addArrow(10, 20);
+</script>

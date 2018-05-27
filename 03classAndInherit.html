@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>class 와 상속 사용하기</title>
+</head>
+<body>
+    <h1>class 와 상속 사용하기</h1>
+</body>
+</html>
+<script>
+    "use strict"
+    //---------------------------------------
+    // class and inheritance
+    let USER_COUNT = 0;
+    class User {
+        constructor(id, pw, email) {
+            this.id = id;
+            this.pw = pw;
+            this.email = email;
+
+            USER_COUNT++;
+        }
+
+        static getUserCount() {
+            return USER_COUNT;
+        }
+
+        register() {
+            console.log( this.id, 'is registered now.');
+        }        
+    }
+
+    class Member extends User {
+        constructor(id, pw, email, pkg) {
+            super(id, pw, email);
+            this.pkg = pkg;
+        }
+
+        get Package() {
+            return this.pkg;
+        }
+    }
+
+    let user1 = new User('bob', 'test', 'bob@email.com');
+    user1.register();
+    let user2 = new User('benny', 'test', 'benny@email.com');
+    user2.register();
+
+    let user3 = new Member('john', '123', 'john@email.com', 'standard');
+    console.log('user3.Package=', user3.Package);
+    user3.register();
+
+    console.log('User.getUserCount()=', User.getUserCount());
+</script>

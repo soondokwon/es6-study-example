@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Var과 Let 비교</title>
+</head>
+<body>
+    <h1>Var과 Let 비교</h1>
+</body>
+</html>
+<script>
+    "use strict"
+    //---------------------------------------
+    // 전역 변수로 사용되는 var, let
+    var a = 'Test1';
+    let b = 'Test2';
+
+    console.log( a );
+    console.log( b );
+
+    //---------------------------------------
+    // function에서 var, let의 차이
+    var testVar = function () {
+        var a = 30; // var은 항상 global scope로 처리 됨.
+        if (true) {
+            var a = 50; // var override 됨.
+            console.log('var : ', a);
+        }
+        console.log('var : ', a);
+    }
+    testVar();
+
+    let testLet = function () {
+        let a = 30;
+        if (true) {
+            let a = 50;
+            console.log('let : ', a);
+        }
+        console.log('let : ', a);
+    }
+    testLet();
+
+    //---------------------------------------
+    // for 에서 var, let 비교
+    for ( var i = 0 ; i < 10 ; i++ ) {
+        console.log('var in i=', i);
+    }
+    console.log('var out i=', i);
+
+    for ( let j = 0 ; j < 10 ; j++ ) {
+        console.log('let in j=', j);
+    }
+
+    try {
+        console.log('let out j=', j); // error
+    } catch( e ) {
+        console.log( 'err=', e );
+    }
+
+</script>
